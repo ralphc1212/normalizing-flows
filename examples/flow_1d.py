@@ -71,8 +71,14 @@ if __name__ == "__main__":
     plot_data(x, color = "black")
     plt.show()
 
+    mean = torch.mean(x[:,0])
+    std = torch.mean(x[:,1])
+
     for i in range(x.shape[1]):
         x[:,i] = (x[:,i] - torch.mean(x[:,i])) / torch.std(x[:,i])
+
+    for i in range(test_x.shape[1]):
+        test_x[:,i] = (test_x[:,i] - mean) / std
 
     for i in range(args.iterations):
         optimizer.zero_grad()
