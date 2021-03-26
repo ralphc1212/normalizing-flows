@@ -9,7 +9,7 @@ import torch
 import torch.optim as optim
 import torch.nn.functional as F
 from argparse import ArgumentParser
-from torch.distributions import MultivariateNormal
+from torch.distributions import MultivariateNormal, Uniform
 
 from nf.flows import *
 from nf.models import NormalizingFlowModel
@@ -30,7 +30,7 @@ if __name__ == "__main__":
     argparser = ArgumentParser()
     argparser.add_argument("--n", default=512, type=int)
     argparser.add_argument("--flows", default=2, type=int)
-    argparser.add_argument("--flow", default="NSF_AR", type=str)
+    argparser.add_argument("--flow", default="ActNorm", type=str)
     argparser.add_argument("--iterations", default=500, type=int)
     args = argparser.parse_args()
 
@@ -39,7 +39,8 @@ if __name__ == "__main__":
 
     flow = eval(args.flow)
     flows = [flow(dim=1) for _ in range(args.flows)]
-    prior = MultivariateNormal(torch.zeros(1), torch.eye(1))
+    # prior = MultivariateNormal(torch.zeros(1), torch.eye(1))
+    prior = Uniform(torch.tensor([0.0]), torch.tensor([1.0]))
     model = NormalizingFlowModel(prior, flows)
 
     optimizer = optim.Adam(model.parameters(), lr=0.005)
