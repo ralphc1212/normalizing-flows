@@ -41,7 +41,7 @@ class data_lognormal:
 if __name__ == "__main__":
 
     argparser = ArgumentParser()
-    argparser.add_argument("--n", default=1e4, type=int)
+    argparser.add_argument("--n", default=int(1e4), type=int)
     argparser.add_argument("--flows", default=2, type=int)
     argparser.add_argument("--flow", default="ActNorm", type=str)
     argparser.add_argument("--iterations", default=500, type=int)
