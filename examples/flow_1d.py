@@ -109,4 +109,6 @@ if __name__ == "__main__":
 
     z, prior_logprob, log_det = model(test_x)
 
+    torch.set_printoptions(precision=10)
+
     print(z[:100])
