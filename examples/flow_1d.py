@@ -24,7 +24,7 @@ def plot_data(x, bandwidth = 0.2, **kwargs):
     x_axis = np.linspace(-5, 5, 200)
     plt.plot(x_axis, kde(x_axis), **kwargs)
 
-
+# try modification
 if __name__ == "__main__":
 
     argparser = ArgumentParser()
@@ -75,5 +75,5 @@ if __name__ == "__main__":
     samples = model.sample(500).data
     plot_data(samples, color="black", alpha=0.5)
     plt.title("Generated samples")
-    plt.savefig("./examples/ex_1d.png")
+    plt.savefig("./ex_1d.png")
     plt.show()
