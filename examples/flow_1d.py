@@ -72,7 +72,7 @@ if __name__ == "__main__":
     plt.show()
 
     mean = torch.mean(x[:,0])
-    std = torch.mean(x[:,0])
+    std = 100
 
     for i in range(x.shape[1]):
         x[:,i] = (x[:,i] - torch.mean(x[:,i])) / torch.std(x[:,i])
@@ -109,6 +109,6 @@ if __name__ == "__main__":
 
     z, prior_logprob, log_det = model(test_x)
 
-    torch.set_printoptions(precision=10)
+    torch.set_printoptions(precision=20)
 
     print(z[:100])
