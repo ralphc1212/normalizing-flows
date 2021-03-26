@@ -113,4 +113,4 @@ if __name__ == "__main__":
 
     print(data.all[:20])
     print(test_x[:20])
-    print(z[:20])
+    print(z.numpy()[:20])
