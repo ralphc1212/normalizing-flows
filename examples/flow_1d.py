@@ -57,8 +57,12 @@ if __name__ == "__main__":
     model = NormalizingFlowModel(prior, flows)
 
     optimizer = optim.Adam(model.parameters(), lr=0.005)
-    x = torch.Tensor(gen_data(args.n))
+    # x = torch.Tensor(gen_data(args.n))
 
+    data = data_lognormal()
+    x = data.all
+    print(x.shape)
+    exit()
     plot_data(x, color = "black")
     plt.show()
 
