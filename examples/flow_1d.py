@@ -114,4 +114,4 @@ if __name__ == "__main__":
     print(data.all[:20])
     print(test_x[:20])
     print(z.detach().numpy()[:20])
-    np.savetxt('lognormal_100.txt', z)
+    np.savetxt('lognormal_100.txt', z.detach().numpy())
