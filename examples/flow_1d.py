@@ -31,9 +31,7 @@ class data_lognormal:
         with open(location+'/lognormal_100.out', 'r') as f:
             lines = f.readlines()
 
-        print(lines[:20])
         self.all = torch.from_numpy(np.array([float(x) for x in lines])).unsqueeze(1).float()
-        print(self.all[:20])
 
         del lines
         f.close()
@@ -68,7 +66,7 @@ if __name__ == "__main__":
 
     x = x[indices]
 
-    test_x = data.all
+    test_x = data.all.copy_()
 
     plot_data(x, color = "black")
     plt.show()
