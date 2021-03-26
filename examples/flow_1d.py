@@ -71,8 +71,8 @@ if __name__ == "__main__":
     plot_data(x, color = "black")
     plt.show()
 
-    mean = torch.mean(x[:,0])
-    std = 500
+    mean = 0
+    std = 1
 
     for i in range(x.shape[1]):
         x[:,i] = (x[:,i] - mean) / std
