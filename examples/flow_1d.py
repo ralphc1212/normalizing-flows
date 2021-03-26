@@ -72,7 +72,7 @@ if __name__ == "__main__":
     plt.show()
 
     mean = torch.mean(x[:,0])
-    std = torch.std(x[:,0])
+    std = 500
 
     for i in range(x.shape[1]):
         x[:,i] = (x[:,i] - mean) / std
