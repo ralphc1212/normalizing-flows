@@ -112,5 +112,6 @@ if __name__ == "__main__":
 
     torch.set_printoptions(precision=20)
 
+    print(data.all[:20])
     print(test_x[:20])
     print(z[:20])
