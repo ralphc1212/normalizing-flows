@@ -61,19 +61,18 @@ if __name__ == "__main__":
 
 
     data = data_lognormal('/home/nandcui/data')
-    x = data.all
+    x = data.all.clone()
     indices = torch.randperm(x.shape[0])[:10000]
 
     x = x[indices]
 
-    test_x = data.all.copy_()
+    test_x = data.all.clone()
 
     plot_data(x, color = "black")
     plt.show()
 
     mean = torch.mean(x[:,0])
     std = torch.std(x[:,0])
-
 
     for i in range(x.shape[1]):
         x[:,i] = (x[:,i] - mean) / std
