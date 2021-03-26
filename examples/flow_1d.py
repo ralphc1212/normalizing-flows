@@ -66,6 +66,8 @@ if __name__ == "__main__":
 
     x = x[indices]
 
+    test_x = data.all
+
     plot_data(x, color = "black")
     plt.show()
 
@@ -98,4 +100,7 @@ if __name__ == "__main__":
     plot_data(samples, color="black", alpha=0.5)
     plt.title("Generated samples")
     plt.savefig("./ex_1d.png")
-    plt.show()
+
+    z, prior_logprob, log_det = model(test_x)
+
+    print(z[:100])
