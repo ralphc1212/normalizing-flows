@@ -72,7 +72,7 @@ if __name__ == "__main__":
     plt.show()
 
     mean = torch.mean(x[:,0])
-    std = 1e8
+    std = 1e9
 
 
     for i in range(x.shape[1]):
