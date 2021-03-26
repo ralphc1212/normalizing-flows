@@ -52,7 +52,7 @@ if __name__ == "__main__":
 
     flow = eval(args.flow)
     flows = [flow(dim=1) for _ in range(args.flows)]
-    prior = MultivariateNormal(torch.zeros(1)-500, torch.eye(1)*10000) + MultivariateNormal(torch.zeros(1)+500, torch.eye(1)*10000)
+    prior = MultivariateNormal(torch.zeros(1), torch.eye(1)*10000)
     # prior = Uniform(torch.tensor([0.0]), torch.tensor([1.0]))
     model = NormalizingFlowModel(prior, flows)
 
@@ -112,4 +112,5 @@ if __name__ == "__main__":
 
     torch.set_printoptions(precision=20)
 
-    print(z[:100])
+    print(test_x[:20])
+    print(z[:20])
