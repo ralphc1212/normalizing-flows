@@ -56,7 +56,7 @@ if __name__ == "__main__":
     # prior = Uniform(torch.tensor([0.0]), torch.tensor([1.0]))
     model = NormalizingFlowModel(prior, flows)
 
-    optimizer = optim.Adam(model.parameters(), lr=0.05)
+    optimizer = optim.Adam(model.parameters(), lr=0.5)
     # x = torch.Tensor(gen_data(args.n))
 
 
