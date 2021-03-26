@@ -5,15 +5,16 @@ import itertools
 import logging
 import matplotlib.pyplot as plt
 
+import sys
 import torch
 import torch.optim as optim
 import torch.nn.functional as F
 from argparse import ArgumentParser
 from torch.distributions import MultivariateNormal, Uniform
 
+sys.path.append('../')
 from nf.flows import *
 from nf.models import NormalizingFlowModel
-
 
 def gen_data(n=512):
     return np.r_[np.random.randn(n // 2, 1) + np.array([2]),
@@ -23,6 +24,18 @@ def plot_data(x, bandwidth = 0.2, **kwargs):
     kde = sp.stats.gaussian_kde(x[:,0])
     x_axis = np.linspace(-5, 5, 200)
     plt.plot(x_axis, kde(x_axis), **kwargs)
+
+class data_lognormal:
+
+    def __init__(self, location):
+        with open(location+'/lognormal.out', 'r') as f:
+            lines = f.readlines()
+
+        self.all = torch.from_numpy(np.array([float(x) for x in lines])).unsqueeze(1).float()
+
+        del lines
+        f.close()
+
 
 # try modification
 if __name__ == "__main__":
