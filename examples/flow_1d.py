@@ -94,7 +94,7 @@ if __name__ == "__main__":
     plt.title("Latent space")
     plt.subplot(1, 3, 3)
     samples = model.sample(500).data
-    print(data[:100])
+    print(x[:100])
     print(samples)
     plot_data(samples, color="black", alpha=0.5)
     plt.title("Generated samples")
