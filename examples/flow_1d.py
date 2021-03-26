@@ -31,6 +31,8 @@ class data_lognormal:
         with open(location+'/lognormal_100.out', 'r') as f:
             lines = f.readlines()
 
+        print(lines[:20])
+        exit()
         self.all = torch.from_numpy(np.array([float(x) for x in lines])).unsqueeze(1).float()
 
         del lines
