@@ -59,7 +59,7 @@ if __name__ == "__main__":
     optimizer = optim.Adam(model.parameters(), lr=0.005)
     # x = torch.Tensor(gen_data(args.n))
 
-    data = data_lognormal()
+    data = data_lognormal('/home/nandcui/data')
     x = data.all
     print(x.shape)
     exit()
