@@ -76,7 +76,7 @@ if __name__ == "__main__":
 
 
     for i in range(x.shape[1]):
-        x[:,i] = (x[:,i] - torch.mean(x[:,i])) / torch.std(x[:,i])
+        x[:,i] = (x[:,i] - torch.mean(x[:,i])) / std
 
     for i in range(test_x.shape[1]):
         test_x[:,i] = (test_x[:,i] - mean) / std
