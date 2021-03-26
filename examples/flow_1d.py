@@ -44,7 +44,7 @@ if __name__ == "__main__":
     argparser.add_argument("--n", default=int(1e4), type=int)
     argparser.add_argument("--flows", default=2, type=int)
     argparser.add_argument("--flow", default="ActNorm", type=str)
-    argparser.add_argument("--iterations", default=50000, type=int)
+    argparser.add_argument("--iterations", default=15000, type=int)
     args = argparser.parse_args()
 
     logging.basicConfig(level=logging.DEBUG)
@@ -113,4 +113,4 @@ if __name__ == "__main__":
 
     print(data.all[:20])
     print(test_x[:20])
-    print(z.numpy()[:20])
+    print(z.detach().numpy()[:20])
